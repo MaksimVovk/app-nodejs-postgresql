@@ -2,7 +2,7 @@
   "name": "app-nodejs-postgresql",
   "version": "1.0.0",
   "description": "app use nodejs and postgresql",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,17 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MaksimVovk/app-nodejs-postgresql/issues"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "consolidate": "*",
+    "dust": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "express": "*",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "pg": ""
   },
   "homepage": "https://github.com/MaksimVovk/app-nodejs-postgresql#readme"
 }
