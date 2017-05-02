@@ -6,7 +6,7 @@ var dust = require('dustjs-helpers');
 var pg = require('pg');
 var app = express();
 
-var conString = "postgres://postgres:1234@localhost/recipes";
+var conString = "postgres://postgres:1234@localhost/postgres";
 
 app.engine('dust', cons.dust);
 
@@ -18,8 +18,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function(req,res){
-	res.render('index')
-})
+	pg.connect(conString, function(err, client, done){
+		if(err){
+			return console.log('Error', err)
+		}
+		client.query('SELECT * from products', function(err, result){
+			console.log(result)
+			if(err){
+				return console.log('not found database')
+			}
+			res.render('index', {products: result.rows})
+			done();
+		});
+	});
+});
+
 app.listen(3000, function(){
 	console.log('Server start');
 })
