@@ -7,7 +7,16 @@
 				{name}
 				<button class="btn btn-default pull-right" data-toggle="collapse" href="##products_{id}" aria-extended="false" aria-controls="products_{id}">View</button>
 			</h4>
-			<div class="collapse" id="products_{id}"><strong>Descriptions: </strong>{descriptions}</div>
+			<div class="collapse" id="products_{id}">
+				<p class="description-block">
+					<strong>Descriptions: </strong>
+					<span class="description-text">{descriptions}</span>
+				</p>
+				<div class="btn-group">
+				<button class="btn btn-edit btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+				<button class="btn btn-delete btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+				</div>
+			</div>
 		</div>
 	{/products}
 {/body}
