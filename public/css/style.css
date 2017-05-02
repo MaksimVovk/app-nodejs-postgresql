@@ -1,5 +1,6 @@
 body{
 	background: #eee;
+	padding: 20px;
 }
 
 p.description-block {
@@ -25,4 +26,8 @@ p.description-block {
 
 h4 {
 	margin-bottom: 40px;
+}
+
+button.btn.btn-primary.btn-block{
+	margin-bottom: 20px;
 }

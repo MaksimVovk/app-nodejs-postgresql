@@ -33,6 +33,30 @@ app.get('/', function(req,res){
 	});
 });
 
+app.post('/add', function(req,res){
+	pg.connect(conString, function(err, client, done){
+		if(err){
+			return console.log('Error', err)
+		}
+		client.query('INSERT INTO products (name, descriptions) VALUES ($1, $2)',[req.body.name, req.body.description]);
+
+		done();
+		res.redirect('/')
+	});
+});
+
+app.delete('/delete/:id', function(req,res){
+	pg.connect(conString, function(err, client, done){
+		if(err){
+			return console.log('Error', err)
+		}
+		client.query('DELETE FROM products WHERE id = $1',[req.params.id]);
+
+		done();
+		res.send(200)
+	});
+});
+
 app.listen(3000, function(){
 	console.log('Server start');
 })
