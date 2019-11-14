@@ -1,9 +1,14 @@
-const express = require('express')
-const pg = require('../../etc/database/index')
 const { port } = require('../../etc/enums')
+const express = require('express')
+const cors = require('cors')
 
 const app = express()
-  pg('users').then(it => console.log(it))
+
+app.use(cors())
+app.use('/', require('./features'))
+
 app.listen(port, () => {
   console.log(`App work on port ${port}-`)
 })
+
+

@@ -4,7 +4,9 @@
   "description": "app use nodejs, postgresql and docker",
   "main": "src/backend/index.js",
   "scripts": {
-    "start": "bash src/start.sh"
+    "start": "bash src/start.sh",
+    "mkmig": "knex migrate:make --knexfile='./etc/database/knexfile.js' $*",
+    "migrate": "knex migrate:latest --knexfile='./etc/database/knexfile.js'"
   },
   "repository": {
     "type": "git",
@@ -16,8 +18,10 @@
     "url": "https://github.com/MaksimVovk/app-nodejs-postgresql/issues"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.15.2",
+    "knex-migrate": "^1.7.4",
     "nodemon": "^1.19.4",
     "pg": "^7.4.0"
   },

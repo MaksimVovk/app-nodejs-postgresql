@@ -10,16 +10,15 @@ const connection = { user, password, host, database }
 module.exports = {
 
   development: {
-    connection: 'postgres://postgres:postgres@157.230.111.165/fias',
-    client: 'pg',
-    pool: {
-      min: 2,
-      max: 50,
-    },
+    client: 'postgresql',
+    connection: 'postgres://app:app@localhost/node',
+    migrations: {
+      directory: __dirname + '/migrations',
+    }
   },
   production: {
     client: 'pg',
-    connection,
+    connection: 'postgres://root:root@localhost/testdb',
     migrations: {
       directory: __dirname + '/migrations',
     }
